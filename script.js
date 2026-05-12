@@ -1,40 +1,22 @@
-console.log('¡Hola me llamo Jorge!');
+// === ADIVINA EL NÚMERO - Versión DOM ===
+
+// --- Seleccionar elementos del HTML ---
+const inputIntento = document.getElementById('inputIntento');
+const btnAdivinar = document.getElementById('btnAdivinar');
+const mensaje = document.getElementById('mensaje');
+const contador = document.getElementById('contador');
+const historial = document.getElementById('historial');
+const btnReiniciar = document.getElementById('btnReiniciar');
+const tarjeta = document.getElementById('game-card');
+
+console.log('Elementos conectados:', inputIntento, btnAdivinar, mensaje);
 
 
-let nombrePropio = "Samuel";
+// --- Tu primera función ---
+function mostrarMensaje(texto, color) {
+  mensaje.textContent = texto;
+  mensaje.style.color = color;
+}
 
-console.log(nombrePropio);
-
-nombrePropio = "Jorge";
-
-console.log(nombrePropio);
-
-console.log(typeof nombrePropio);
-
-let apellidoPaterno = "Zorrilla";
-
-const CURSO = "Code 101";
-
-console.log(CURSO);
-
-let miVariable = true;
-let miVariable2 = false;
-
-console.log(miVariable);
-
-
-
-let edadUsuario = prompt('¿Cúantos años tienes?');
-
-console.log(edadUsuario);
-console.log(typeof edadUsuario);
-
-edadUsuario = Number(edadUsuario)
-
-console.log(typeof edadUsuario);
-
-console.log(edadUsuario+5);
-
-let saludoModerno = `Me llamo ${nombrePropio} ${apellidoPaterno} y estoy en el curso ${CURSO}`;
-
-console.log(saludoModerno);
+// Prueba la función
+mostrarMensaje('¡Bienvenido al juego!', '#e94560');
