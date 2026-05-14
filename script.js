@@ -56,14 +56,18 @@ function verificarIntento() {
     btnAdivinar.disabled = true;
     btnReiniciar.style.display = 'inline-block';
 
+     } else if (valor > numeroSecreto) {
+    let pista = obtenerPista(valor, numeroSecreto);
+    mostrarMensaje('📈 Muy alto. ' + pista, '#ff6b6b');
+  } else {
+    let pista = obtenerPista(valor, numeroSecreto);
+    mostrarMensaje('📉 Muy bajo. ' + pista, '#4ecdc4');
+  }
+
     // Celebración visual: la tarjeta brilla verde
     tarjeta.style.borderColor = '#00ff88';
     tarjeta.style.boxShadow = '0 0 40px rgba(0, 255, 136, 0.3)';
-  } else if (valor > numeroSecreto) {
-    mostrarMensaje('📈 Te alejas del número, muy alto.', '#ff6b6b');
-  } else {
-    mostrarMensaje('📉 Te alejas del número, muy bajo.', '#4ecdc4');
-  }
+  
 
   // Limpiar input y enfocar
   inputIntento.value = '';
@@ -106,3 +110,21 @@ inputIntento.addEventListener('keypress', function(evento) {
     verificarIntento();
   }
 });
+
+
+// --- Pista de cercanía ---
+function obtenerPista(intento, secreto) {
+  let diferencia = Math.abs(intento - secreto);
+
+  if (diferencia <= 5) {
+    return '🔥 ¡Muy cerca!';
+  } else if (diferencia <= 15) {
+    return '♨️ Caliente';
+  } else if (diferencia <= 30) {
+    return '🌤️ Tibio';
+  } else {
+    return '❄️ Frío';
+  }
+}
+
+
